@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="require.js">
+            <container name="fwc.params" as="fwc.params" label="FWC Params Container" htmlTag="div" htmlClass="some-container"/>
+            <action method="setTemplate" ifconfig="sarehub/general/enabled">
+                <argument name="template" xsi:type="string">Fwc_SAREhub::require.js.phtml</argument>
+            </action>
+            <block class="Fwc\SAREhub\Block\TrackingCode" name="fwc.sarehub.tracking_code" as="fwc.sarehub.tracking_code" template="Fwc_SAREhub::snippets/tracking_code.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="fwc.js.config" template="Fwc_SAREhub::footerJs.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="fwc" translate="label" sortOrder="300">
+            <label>FWC extensions</label>
+        </tab>
+        <section id="sarehub" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SAREhub Integration</label>
+            <tab>fwc</tab>
+            <resource>Fwc_SAREhub::config_sarehub</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Options</label>
+                <field id="info" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="1">
+                    <frontend_model>Fwc\SAREhub\Block\Adminhtml\System\Config\Info</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="tracking_code" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tracking code</label>
+                    <comment><![CDATA[Do not change, unless you have to]]></comment>
+                    <depends>
+                        <field id="sarehub/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="tracking" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Tracking Options</label>
+                <field id="events" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tracked events</label>
+                    <source_model>Fwc\SAREhub\Model\Event</source_model>
+                </field>
+            </group>
+            <group id="web_push" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Web Push</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Website type</label>
+                    <source_model>Fwc\SAREhub\Model\Config\Source\WebPushWebsiteType</source_model>
+                    <depends>
+                        <field id="sarehub/web_push/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="send_https" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send web push notifications https</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>ATTENTION! Web push notifications support only HTTPS and add manifest.json and sw.js files. If your website does not support HTTPS, select the appropriate option in the SAREHUB panel when configuring integration</comment>
+                    <depends>
+                        <field id="sarehub/web_push/enabled">1</field>
+                        <field id="sarehub/web_push/type">https</field>
+                    </depends>
+                </field>
+                <field id="send_http_mode" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Web push notifications http mode</label>
+                    <source_model>Fwc\SAREhub\Model\Config\Source\WebPushHttpTypes</source_model>
+                    <depends>
+                        <field id="sarehub/web_push/enabled">1</field>
+                        <field id="sarehub/web_push/type">http</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    var require = {
+        "baseUrl": "<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('/') ?>",
+        "BASE_URL": "<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('/') ?>",
+    };
+    var sareX_params = [];
+</script>
+
+<?php echo $this->getChildHtml('fwc.sarehub.tracking_code');?>
+<?php echo $this->getChildHtml('fwc.params');?>

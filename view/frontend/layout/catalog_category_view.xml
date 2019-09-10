@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="fwc.params">
+            <block class="Fwc\SAREhub\Block\EventTrackingCode" name="fwc.sarehub.tracking_code" as="fwc.sarehub.tracking_code" >
+                <arguments>
+                    <argument name="event" xsi:type="string">_category</argument>
+                    <argument name="param" xsi:type="string">tag</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

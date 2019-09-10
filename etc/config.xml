@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sarehub>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <web_push>
+                <type>https</type>
+                <send_https>0</send_https>
+            </web_push>
+        </sarehub>
+    </default>
+</config>
