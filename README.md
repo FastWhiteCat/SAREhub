@@ -17,7 +17,7 @@ scoring. Those are just a few capabilities of the SAREhub.
 
 Installing via a composer (NOTE: These steps are only necessary when installing our software for the first time)
 
-`composer require fwc/sarehub`
+`composer require fastwhitecat/sarehub`
 
 
 #### Step 2
