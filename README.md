@@ -64,3 +64,7 @@ Installing via a composer (NOTE: These steps are only necessary when installing 
 6. Click FWC EXTENSIONS → SAREhub Integration. Enter your tracking code
 7. Click Save Config.
 8. Please go to Cache Management and refresh cache types.
+
+### Changelog
+
+##### 1.0.1 - Fixed javascript file
