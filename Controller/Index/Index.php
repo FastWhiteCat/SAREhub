@@ -4,6 +4,7 @@ namespace Fwc\SAREhub\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\Session\SessionManagerInterface as CoreSession;
 use Magento\Framework\View\Result\PageFactory;
 
@@ -23,20 +24,28 @@ class Index extends Action
     protected $coreSession;
 
     /**
+     * @var JsonFactory
+     */
+    protected $resultJsonFactory;
+
+    /**
      * Index constructor.
      *
      * @param Context     $context
      * @param PageFactory $pageFactory
      * @param CoreSession $coreSession
+     * @param JsonFactory $resultJsonFactory
      */
     public function __construct(
         Context $context,
         PageFactory $pageFactory,
-        CoreSession $coreSession
+        CoreSession $coreSession,
+        JsonFactory $resultJsonFactory
     ) {
         parent::__construct($context);
-        $this->pageFactory = $pageFactory;
-        $this->coreSession = $coreSession;
+        $this->pageFactory       = $pageFactory;
+        $this->coreSession       = $coreSession;
+        $this->resultJsonFactory = $resultJsonFactory;
     }
 
     public function execute()
@@ -48,6 +57,8 @@ class Index extends Action
             $events = [];
         }
 
-        echo json_encode($events);
+        $result = $this->resultJsonFactory->create();
+
+        return $result->setData(json_encode($events));
     }
 }
