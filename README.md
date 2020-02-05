@@ -68,3 +68,5 @@ Installing via a composer (NOTE: These steps are only necessary when installing 
 ### Changelog
 
 ##### 1.0.1 - Fixed javascript file
+##### 1.0.2 - Fixed index controller return data
+##### 1.0.3 - Fixed observer
