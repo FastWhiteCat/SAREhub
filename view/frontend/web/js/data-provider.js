@@ -1,29 +1,47 @@
 define([
     'jquery',
-    'mage/url'
+    'mage/url',
+
 ], function ($, url) {
     'use strict';
 
     return  {
         getSareAjaxData: function () {
-            var jqXHR = $.ajax({
-                url: url.build('sarehub/dataprovider/index'),
-                type: 'POST',
-                data: {},
+            var response = '',
+                dataProviderUrl = window.location.origin + '/sarehub/dataprovider/index';
+
+            $.ajax({
+                url: dataProviderUrl,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    response = data;
+                },
+                error: function(request, error) {
+                    console.log(error);
+                },
                 async: false, //todo::promise or sth
             });
 
-            return JSON.parse(jqXHR.responseText);
+            return response;
         },
 
         isEventAvailable: function (eventId) {
             let configData = this.getSareAjaxData();
+
+            if (configData === '') {
+                return false
+            }
 
             return configData.events[eventId];
         },
 
         getData: function (eventId, eventObject) {
             let configData = this.getSareAjaxData();
+
+            if (configData === '') {
+                return false
+            }
 
             var eventParams = {
                 '_userId': configData.additionalData.userId,
