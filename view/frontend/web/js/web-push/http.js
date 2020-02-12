@@ -3,8 +3,8 @@ require([
     'Fwc_SAREhub/js/data-provider',
     'domReady!'
 ], function ($, dataProvider) {
-    configData = dataProvider.getSareAjaxData();
     if (window['sareX_params']) {
+        configData = dataProvider.getSareAjaxData();
         (function (p) {
             for (var key in p) {
                 window['sareX_params'][key] = p[key];
