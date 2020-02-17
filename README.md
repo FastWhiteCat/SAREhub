@@ -72,3 +72,4 @@ Installing via a composer (NOTE: These steps are only necessary when installing 
 ##### 1.0.3 - Fixed observer
 ##### 1.0.4 - Fixed PHP version in composer require dependencies
 ##### 1.0.5 - Fixed adding products from wish list
+##### 1.0.6 - Fixed adding products from recently ordered items
